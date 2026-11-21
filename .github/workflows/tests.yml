@@ -27,10 +27,14 @@ jobs:
         run: |
           status=0
           for m in smoke search nav product cart seo; do
-            pytest -m $m -rs --html=reports/$m.html || status=1
+            pytest -m $m -rs --html=reports/$m.html --junitxml=reports/$m.xml || status=1
             sleep 60
           done
           exit $status
+
+      - name: Summary (passed / skipped / failed)
+        if: always()
+        run: python scripts/summarize_reports.py
 
       - name: Upload reports
         if: always()
