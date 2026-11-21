@@ -28,6 +28,15 @@ If many tests are skipped, wait a few minutes and run the groups one at a time:
 
 Each group overwrites `report.html`, so read the results from the terminal summary.
 
+## Run from GitHub (no installation)
+
+1. Open the **Actions** tab of this repository.
+2. Choose **Run tests** on the left, then click **Run workflow**.
+3. When the run finishes, open it and download the **test-reports** artifact (HTML report per group).
+
+To do this on your own copy, click **Fork** first, then enable Actions in your fork.
+Note: GitHub's servers may be blocked by the site's bot protection - blocked tests show as skipped, not failed.
+
 ## Fixing selectors
 
 If a test fails because of a selector, run `playwright codegen https://www.thomannmusic.com/`
